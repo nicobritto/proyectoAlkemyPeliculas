@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaft.org" 
+      xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Datos de la pelicula</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos de la pelicula</h1>
+
+        <form th:action="@{/guardar}"  method="POST" th:object="${pelicula}" ><!-- th:object="${pelicula} asociamos el formulario con el objeto pelicula para guardar los datos -->
+            <input type="hidden" name="idPelicula" th:field="*{idPelicula}"/>
+
+            <label for="imagen">imagen</label>
+            <input type="text" name="imagen" th:field="*{imagen}"/><!-- th:field="*{apellido}" accedemos al pelicula apellido -->
+            <!-- preguntamos si el campo  de imagen contiene errores  -->
+            <span th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}">Error del nombre</span>
+            <br/>
+
+            <label for="titulo">titulo</label>
+            <input type="text" name="titulo" th:field="*{titulo}"/>
+            <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error del nombre</span>
+            <br/>
+
+            <label for="fecha_de_creacion">fecha_de_creacion</label>
+            <input type="text" name="fecha_de_creacion" th:field="*{fecha_de_creacion}"/>
+            <span th:if="${#fields.hasErrors('fecha_de_creacion')}" th:errors="*{fecha_de_creacion}">Error del nombre</span>
+            <br/>
+
+            <label for="calificacion">calificacion</label>
+            <input type="text" name="calificacion" th:field="*{calificacion}"/>
+            <span th:if="${#fields.hasErrors('calificacion')}" th:errors="*{calificacion}">Error del nombre</span>
+            <br/>
+
+            <label for="personajes_asociados">personajes_asociados</label>
+            <input type="text" name="personajes_asociados" th:field="*{personajes_asociados}"/>
+
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form>
+
+
+        <a th:href="@{/}">Regresar</a>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <a th:href="@{/agregar}">agregar pelicula</a>
+        <div th:if="${personas != null and !personas.empty}"><!-- !empty qeu sea diferente vacia -->
+            <table border="1">
+                <tr>
+                    <th>imagen</th>
+                    <th>titulo</th>
+                    <th>fecha_de_creacion</th>
+                    <th>calificacion</th>
+                    <th>personajes_asociados</th>
+                    <th>Editar</th>
+                    <th>Elimijar</th>
+                    
+                </tr>
+
+
+                <tr th:each="persona:${personas}">
+                    <td th:text="${persona.imagen}"></td>
+                    <td th:text="${persona.titulo}"></td>
+                    <td th:text="${persona.fecha_de_creacion}"></td>
+                    <td th:text="${persona.calificacion}"></td>
+                    <td th:text="${persona.personajes_asociados}"></td>
+                    <td> <a th:href="@{/editar/} + ${persona.idPelicula}" th:text="Editar"/></td>
+                    <td> <a th:href="@{/eliminar/} + ${persona.idPelicula}" th:text="Eliminar"/></td>
+                    
+                 </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            La lista de personas está vacía
+        </div>
+
+    </body>
+</html>
