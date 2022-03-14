@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <h1>Inicio</h1>
+        <header th:replace="plantilla/laplantilla :: header"></header>
+        
         <a th:href="@{/agregar}">agregar pelicula</a>
         <div th:if="${personas != null and !personas.empty}"><!-- !empty qeu sea diferente vacia -->
             <table border="1">
@@ -36,6 +37,9 @@
         <div th:if="${personas == null or personas.empty}">
             La lista de personas está vacía
         </div>
+        
+        <footer th:replace="plantilla/laplantilla :: footer"></footer>
+        
 
     </body>
 </html>

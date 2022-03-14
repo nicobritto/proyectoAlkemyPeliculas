@@ -1,7 +1,8 @@
 <html xmlns:th="http://www.thymeleaft.org" 
       xmlns="http://www.w3.org/1999/html">
     <head>
-        <title>Datos de la pelicula</title>
+        <header th:replace="plantilla/laplantilla :: header"></header>
+
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -41,6 +42,8 @@
 
 
         <a th:href="@{/}">Regresar</a>
+        <footer th:replace="plantilla/laplantilla :: footer"></footer>
+
 
     </body>
 </html>
